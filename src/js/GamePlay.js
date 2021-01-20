@@ -9,7 +9,7 @@ export default class GamePlay {
   }
 
   init() {
-    setInterval(this.checkingPosition.bind(this), 3000);
+    setInterval(this.checkingPosition.bind(this), 1000);
   }
 
   checkingPosition() {
@@ -45,7 +45,7 @@ export default class GamePlay {
 
   scoringPoints () {
     const pointValue = document.querySelector('.point_value');
-    
+
     pointValue.textContent = this.points += 1;
   }
 
