@@ -12,6 +12,7 @@ export default class EventList {
             } else {
               this.gamePlay.loss();
             };
+        this.gamePlay.click = true;
     });
   }
 }

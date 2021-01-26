@@ -6,11 +6,20 @@ export default class GamePlay {
     this.collection = document.querySelectorAll(".field_li");
     this.points = 0;
     this.losingPoints = 5;
+    this.click = true;
   }
 
   init() {
-    setInterval(this.checkingPosition.bind(this), 1000);
+    setInterval(this.checkingPosition.bind(this), 2000);
+    setInterval(this.checkingClickEvent.bind(this), 2000);
   }
+
+  checkingClickEvent() {
+    if(!this.click) {
+      this.loss();
+    }
+    this.click = false;
+  };
 
   checkingPosition() {
     let randomPosition = this.determiningRandomPosition();
@@ -34,7 +43,7 @@ export default class GamePlay {
       this.goblinRemoval();
       this.element.insertAdjacentHTML(
         "beforeend",
-        '<img class="img hummer" src="https://github.com/netology-code/ahj-homeworks/blob/simplification/dom/pic/goblin.png?raw=true">'
+        '<img class="img" src="https://github.com/netology-code/ahj-homeworks/blob/simplification/dom/pic/goblin.png?raw=true">'
       );
       this.previousElement = this.element;
   }

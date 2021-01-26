@@ -18,3 +18,7 @@ img {
   width: 35px;
   height: 35px;
 }
+
+.hammer {
+  cursor: url(/src/img/hammer3.png) 23 23, pointer;
+}
