@@ -1,5 +1,9 @@
+import goblin from '../img/goblin.png'
+
 export default class GamePlay {
   constructor() {
+    this.setIntervalOne = null;
+    this.setIntervalTwo = null;
     this.position = null;
     this.element = null;
     this.previousElement = null;
@@ -10,8 +14,8 @@ export default class GamePlay {
   }
 
   init() {
-    setInterval(this.checkingPosition.bind(this), 2000);
-    setInterval(this.checkingClickEvent.bind(this), 2000);
+    this.setIntervalOne = setInterval(this.checkingPosition.bind(this), 2000);
+    this.setIntervalTwo = setInterval(this.checkingClickEvent.bind(this), 2000);
   }
 
   checkingClickEvent() {
@@ -43,7 +47,7 @@ export default class GamePlay {
       this.goblinRemoval();
       this.element.insertAdjacentHTML(
         "beforeend",
-        '<img class="img" src="https://github.com/netology-code/ahj-homeworks/blob/simplification/dom/pic/goblin.png?raw=true">'
+        '<img class="img" src='+ goblin +'>'
       );
       this.previousElement = this.element;
   }
@@ -62,7 +66,9 @@ export default class GamePlay {
     const losingPointsValue = document.querySelector('.losingPoints_value');
 
     if(this.losingPoints === 0) {
-      alert("Вы проиграли!!!")
+      alert("Вы проиграли!!!");
+      clearTimeout(this.setIntervalOne);
+      clearTimeout(this.setIntervalTwo);
     } else {
       losingPointsValue.textContent = this.losingPoints -= 1;
     }

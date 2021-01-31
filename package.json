@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "file-loader": "^6.2.0",
     "url-loader": "^4.1.1"
   },
   "description": "",
