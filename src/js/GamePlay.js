@@ -29,6 +29,7 @@ export default class GamePlay {
       this.setIntervalOne = setInterval(this.checkingPosition.bind(this), 2000);
       this.setIntervalTwo = setInterval(this.checkingClickEvent.bind(this), 2000);
       this.losingPoints = 5;
+      this.points = 0;
       losingPointsValue.textContent = 5;
     })
   }
