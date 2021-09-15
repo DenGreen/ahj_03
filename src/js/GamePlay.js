@@ -16,6 +16,21 @@ export default class GamePlay {
   init() {
     this.setIntervalOne = setInterval(this.checkingPosition.bind(this), 2000);
     this.setIntervalTwo = setInterval(this.checkingClickEvent.bind(this), 2000);
+    this.btnStartOver();
+  }
+
+  btnStartOver() {
+    let btn = document.querySelector('.btn');
+    let losingPointsValue = document.querySelector('.losingPoints_value');
+    let pointValue = document.querySelector('.point_value');
+
+    btn.addEventListener('click', (e) =>{
+      pointValue.textContent = 0;
+      this.setIntervalOne = setInterval(this.checkingPosition.bind(this), 2000);
+      this.setIntervalTwo = setInterval(this.checkingClickEvent.bind(this), 2000);
+      this.losingPoints = 5;
+      losingPointsValue.textContent = 5;
+    })
   }
 
   checkingClickEvent() {
@@ -64,13 +79,13 @@ export default class GamePlay {
 
   loss() {
     const losingPointsValue = document.querySelector('.losingPoints_value');
+    
+    losingPointsValue.textContent = this.losingPoints -= 1;
 
     if(this.losingPoints === 0) {
       alert("Вы проиграли!!!");
       clearTimeout(this.setIntervalOne);
       clearTimeout(this.setIntervalTwo);
-    } else {
-      losingPointsValue.textContent = this.losingPoints -= 1;
     }
   }
 }
