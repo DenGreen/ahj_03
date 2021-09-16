@@ -31,6 +31,7 @@ export default class GamePlay {
       this.losingPoints = 5;
       this.points = 0;
       losingPointsValue.textContent = 5;
+      btn.classList.add('btn__none');
     })
   }
 
@@ -80,11 +81,13 @@ export default class GamePlay {
 
   loss() {
     const losingPointsValue = document.querySelector('.losingPoints_value');
-    
+    let btn = document.querySelector('.btn');
+
     losingPointsValue.textContent = this.losingPoints -= 1;
 
     if(this.losingPoints === 0) {
       alert("Вы проиграли!!!");
+      btn.classList.remove('btn__none');
       clearTimeout(this.setIntervalOne);
       clearTimeout(this.setIntervalTwo);
     }

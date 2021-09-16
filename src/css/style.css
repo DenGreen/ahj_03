@@ -22,3 +22,7 @@ img {
 .hammer {
   cursor: url('../img/hammer3.png') 23 23, pointer;
 }
+
+.btn__none {
+  display: none;
+}
